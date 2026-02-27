@@ -883,53 +883,6 @@ body.intro-open .page-shell {
   white-space: pre-wrap;
 }
 
-/* =========================
-   SCRAPBOOK PHONE ANIMATION
-   ========================= */
-
-@media (max-width: 700px) {
-  /* stagger pop-in for each card */
-  .scrap-slot {
-    opacity: 0;
-    transform: translateY(14px) scale(0.98);
-    animation: scrapPopIn 520ms cubic-bezier(.2,.8,.2,1) forwards;
-    will-change: transform, opacity;
-  }
-
-  @keyframes scrapPopIn {
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  /* a few stickers gently float so it feels alive */
-  .scrap-slot:nth-child(3n) .tiny-sticker,
-  .scrap-slot:nth-child(4n) .tiny-sticker {
-    animation: stickerBob 2.8s ease-in-out infinite;
-  }
-
-  @keyframes stickerBob {
-    0%, 100% { transform: rotate(8deg) translateY(0); }
-    50% { transform: rotate(8deg) translateY(-4px); }
-  }
-
-  /* tap feedback */
-  .polaroid {
-    transition: transform 140ms ease, box-shadow 140ms ease;
-  }
-
-  .polaroid:active {
-    transform: scale(0.985);
-    box-shadow: 0 10px 18px rgba(0,0,0,0.12);
-  }
-}
-
-@media (max-width: 700px) {
-  .header-actions button {
-    border-radius: 999px;
-  }
-}
 
 /* =========================
    SCRAPBOOK — PHONE MAKEOVER
