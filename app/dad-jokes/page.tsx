@@ -67,16 +67,6 @@ export default function DadJokesPage() {
           );
         })}
       </section>
-
-      <section className="card">
-        <h2>Add your own jokes</h2>
-        <p className="soft-text">Use these spaces for your own custom ones.</p>
-        <div className="placeholder-list">
-          <div>[Custom joke #1 question + answer]</div>
-          <div>[Custom joke #2 question + answer]</div>
-          <div>[Custom joke #3 question + answer]</div>
-        </div>
-      </section>
     </main>
   );
 }

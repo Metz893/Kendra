@@ -330,7 +330,7 @@ button:hover,
 .hero-photo-3 {
   width: 64%;
   height: 46%;
-  bottom: 7%;
+  bottom: 3%;
   left: 18%;
   transform: rotate(-2deg);
 }
@@ -867,4 +867,18 @@ summary {
 
 .intro-btn:active {
   transform: translateY(1px) scale(0.98);
+}
+
+/* Hide navbar during intro */
+body.intro-open .top-nav {
+  display: none;
+}
+
+/* Optional: remove top padding shift when nav disappears */
+body.intro-open .page-shell {
+  padding-top: 14px;
+}
+
+.prewrap {
+  white-space: pre-wrap;
 }
