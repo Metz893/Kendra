@@ -183,7 +183,7 @@ export default function HomePage() {
 
           <div className="mini-drawer">
             <p className="drawer-title">♥ Kendra</p>
-            <p>[Put a short personal note here for the front page.]</p>
+            <p>Thank you for who you are and what you have taught me. I hope you have an incredible year.</p>
           </div>
 
           <div className="page-links-grid">

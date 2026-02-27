@@ -882,3 +882,89 @@ body.intro-open .page-shell {
 .prewrap {
   white-space: pre-wrap;
 }
+
+/* =========================
+   SCRAPBOOK — PHONE MAKEOVER
+   ========================= */
+
+@media (max-width: 700px) {
+  /* give the page more breathing room */
+  .book-page {
+    gap: 12px;
+    padding-bottom: 22px;
+  }
+
+  .scrapbook-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-actions button {
+    width: 100%;
+  }
+
+  /* turn the board into a fun “scrapbook feed” */
+  .scrapbook-board {
+    min-height: auto;
+    padding: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;       /* <-- key: stop fixed rows */
+    gap: 12px;
+  }
+
+  /* stop using absolute “slot” sizing logic on phone */
+  .scrap-slot {
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* make some items pop full-width, like featured scrapbook pages */
+  .scrap-slot:nth-child(5n + 1) {
+    grid-column: 1 / -1;
+  }
+
+  /* polaroid looks bigger + more “scrapbook” */
+  .polaroid {
+    border-radius: 14px;
+    padding: 10px 10px 12px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  }
+
+  .polaroid-img {
+    border-radius: 10px;
+    /* makes images feel more like phone-friendly cards */
+    aspect-ratio: 4 / 5;
+  }
+
+  .polaroid figcaption {
+    padding-top: 10px;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  /* sticker becomes a cute “stamp” */
+  .tiny-sticker {
+    top: -8px;
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    transform: rotate(8deg);
+  }
+
+  /* add a subtle “tap” vibe */
+  .polaroid:active {
+    transform: scale(0.99);
+  }
+}
+
+@media (max-width: 700px) {
+  .header-actions button {
+    border-radius: 999px;
+  }
+}

@@ -16,7 +16,7 @@ const photos = [
   { src: 'B5ED810A-BE8C-42C4-8487-15FFA7BD3080_1_105_c.jpeg', caption: 'hug pic' },
   { src: 'IMG_0491.JPG', caption: 'You seem suspicious' },
   { src: 'IMG_0492.JPG', caption: 'You are adorable' },
-  { src: 'IMG_0493.JPG', caption: 'Looks like stealing Froyo' },
+  { src: 'IMG_0493.JPG', caption: 'Looks like stealing froyo' },
   { src: 'IMG_0496.JPG', caption: 'Somebody was tired' },
   { src: 'IMG_0497.JPG', caption: 'Beautiful' },
   { src: 'IMG_0498.JPG', caption: 'My shoulder doesn\'t smell that good' },
@@ -24,7 +24,7 @@ const photos = [
   { src: 'IMG_0500.JPG', caption: 'Again with the shoulder' },
   { src: 'IMG_0501.JPG', caption: 'That\'s my sweatshirt' },
   { src: 'IMG_0502.jpeg', caption: 'I love you\'re curly hair' },
-  { src: 'new.jpeg', caption: 'Poster' },
+  { src: 'new.jpeg', caption: 'Solid Poster' },
   { src: 'nwq.jpeg', caption: 'I look high' },
 
 ];
