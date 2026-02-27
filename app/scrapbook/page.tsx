@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import PhotoPolaroid from '@/components/PhotoPolaroid';
 
 const photos = [
@@ -19,14 +19,13 @@ const photos = [
   { src: 'IMG_0493.JPG', caption: 'Looks like stealing froyo' },
   { src: 'IMG_0496.JPG', caption: 'Somebody was tired' },
   { src: 'IMG_0497.JPG', caption: 'Beautiful' },
-  { src: 'IMG_0498.JPG', caption: 'My shoulder doesn\'t smell that good' },
+  { src: 'IMG_0498.JPG', caption: "My shoulder doesn't smell that good" },
   { src: 'IMG_0499.JPG', caption: 'Cute' },
   { src: 'IMG_0500.JPG', caption: 'Again with the shoulder' },
-  { src: 'IMG_0501.JPG', caption: 'That\'s my sweatshirt' },
-  { src: 'IMG_0502.jpeg', caption: 'I love you\'re curly hair' },
-  { src: 'new.jpeg', caption: 'Solid Poster' },
+  { src: 'IMG_0501.JPG', caption: "That's my sweatshirt" },
+  { src: 'IMG_0502.jpeg', caption: "I love you're curly hair" },
+  { src: 'new.jpeg', caption: 'Poster' },
   { src: 'nwq.jpeg', caption: 'I look high' },
-
 ];
 
 const stickers = ['🎀', '🩷', '✨', '🫶', '🌸', '♥'];
@@ -34,9 +33,11 @@ const stickers = ['🎀', '🩷', '✨', '🫶', '🌸', '♥'];
 export default function ScrapbookPage() {
   const [shuffle, setShuffle] = useState(0);
 
+  // This forces the “pop-in” animation to replay on shuffle.
+  const [animKey, setAnimKey] = useState(0);
+
   const randomized = useMemo(() => {
     const copy = [...photos];
-    // small stable-ish shuffle per click
     for (let i = copy.length - 1; i > 0; i--) {
       const j = (i * 7 + shuffle * 3) % (i + 1);
       [copy[i], copy[j]] = [copy[j], copy[i]];
@@ -44,34 +45,59 @@ export default function ScrapbookPage() {
     return copy;
   }, [shuffle]);
 
+  useEffect(() => {
+    setAnimKey((k) => k + 1);
+  }, [shuffle]);
+
   return (
-    <main className="book-page">
+    <main className="book-page scrapbook-phone">
       <section className="card scrapbook-header">
         <div>
-          <p className="small-tag">Scrapbook Page</p>
+          <p className="small-tag">Scrapbook</p>
           <h1>Favorite Memories ♥</h1>
           <p className="soft-text">
-            
+            Little snapshots, goofy moments, and the pictures I never want to lose.
           </p>
         </div>
+
         <div className="header-actions">
-          <button onClick={() => setShuffle((n) => n + 1)}>Shuffle layout</button>
+          <button
+            onClick={() => setShuffle((n) => n + 1)}
+            className="scrap-shuffle"
+          >
+            Shuffle ✨
+          </button>
         </div>
       </section>
 
-      <section className="scrapbook-board">
-        {randomized.map((photo, idx) => (
-          <div key={`${photo.src}-${shuffle}`} className={`scrap-slot slot-${(idx % 8) + 1}`}>
-            <PhotoPolaroid
-              src={photo.src}
-              caption={photo.caption}
-              rotate={[-5, 4, -2, 6, -4, 3][idx % 6]}
-            />
-            <div className="tiny-sticker">{stickers[idx % stickers.length]}</div>
-          </div>
-        ))}
+      {/* Phone-first grid (CSS will handle 2-col on mobile, bigger “featured” cards, etc.) */}
+      <section className="scrapbook-grid" key={animKey}>
+        {randomized.map((photo, idx) => {
+          const featured = idx % 7 === 0; // every 7th photo becomes a “big” card on phones
+          const rotate = [-5, 4, -2, 6, -4, 3][idx % 6];
+
+          return (
+            <div
+              key={`${photo.src}-${shuffle}-${idx}`}
+              className={`scrap-item ${featured ? 'featured' : ''}`}
+              style={{ animationDelay: `${Math.min(idx, 14) * 60}ms` }}
+            >
+              <PhotoPolaroid src={photo.src} caption={photo.caption} rotate={rotate} />
+              <div className="scrap-sticker">{stickers[idx % stickers.length]}</div>
+            </div>
+          );
+        })}
       </section>
 
+      <section className="card scrapbook-footer-note">
+        <h2>Space for your notes</h2>
+        <div className="notes-grid">
+          <div className="placeholder-note">[Add a quick story about one of these photos here]</div>
+          <div className="placeholder-note">[Add a “remember when…” note here]</div>
+          <div className="placeholder-note">[Add a short message you want her to see later]</div>
+          <div className="placeholder-note">[Add a future plan / date idea here]</div>
+        </div>
+      </section>
     </main>
   );
 }
