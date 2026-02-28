@@ -110,15 +110,6 @@ export default function HomePage() {
               <button className="intro-btn" onClick={nextIntro}>
                 {introIndex < introSteps.length - 1 ? 'Next' : 'Continue'}
               </button>
-              <button
-                className="btn-link"
-                onClick={() => {
-                  localStorage.removeItem('kendra_intro_seen');
-                  window.location.reload();
-                }}
-              >
-                Reset intro (temp)
-              </button>
             </div>
           )}
 
@@ -184,10 +175,15 @@ export default function HomePage() {
             <Link href="/dad-jokes" className="btn-link">
               Dad jokes page
             </Link>
-
-            <button onClick={openIntro} className="btn-link">
-              Replay intro
-            </button>
+              <button
+                className="btn-link"
+                onClick={() => {
+                  localStorage.removeItem('kendra_intro_seen');
+                  window.location.reload();
+                }}
+              >
+                Reset intro
+              </button>
           </div>
 
           <div className="mini-drawer">
