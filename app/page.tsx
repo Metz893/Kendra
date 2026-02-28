@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react';
 const INTRO_SEEN_KEY = 'kendra_intro_seen';
 
 const heroPhotos = [
-  'D6B08F87-889D-44BA-B07E-E1CDEC86E73F_1_105_c.jpeg',
-  'DD7E2388-717E-46F4-B9F0-88308A048390_1_105_c.jpeg',
+  'new4.jpeg',
+  'new3.jpeg',
   '438D1244-8E88-4871-ABB5-A9FA9A7FD8F5_1_105_c.jpeg',
 ];
 
@@ -109,6 +109,15 @@ export default function HomePage() {
               </p>
               <button className="intro-btn" onClick={nextIntro}>
                 {introIndex < introSteps.length - 1 ? 'Next' : 'Continue'}
+              </button>
+              <button
+                className="btn-link"
+                onClick={() => {
+                  localStorage.removeItem('kendra_intro_seen');
+                  window.location.reload();
+                }}
+              >
+                Reset intro (temp)
               </button>
             </div>
           )}
