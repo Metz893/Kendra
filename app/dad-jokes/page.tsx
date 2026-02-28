@@ -8,8 +8,8 @@ const jokes = [
     answer: 'Because he was outstanding in his field.',
   },
   {
-    question: 'What do you call fake spaghetti?',
-    answer: 'An impasta.',
+    question: 'I am going on a seafood diet (click answer)',
+    answer: 'I see food and I eat it.',
   },
   {
     question: 'Why don’t eggs tell jokes?',
@@ -31,6 +31,14 @@ const jokes = [
     question: 'Why can’t your nose be 12 inches long?',
     answer: 'Because then it would be a foot.',
   },
+  {
+    question: 'Why the tomato blush?',
+    answer: 'Because it saw the salad dressing.',
+  },
+  {
+    question: 'What did the banana say to the boy?',
+    answer: 'Nothing, bananas can\'t talk.',
+  },
 ];
 
 export default function DadJokesPage() {
@@ -42,7 +50,7 @@ export default function DadJokesPage() {
         <p className="small-tag">Dad Jokes Page</p>
         <h1>Dad Jokes for Kendra ♥</h1>
         <p className="soft-text">
-          Read the joke, think about it, then tap to reveal the answer.
+          A little bit of fun.
         </p>
       </section>
 

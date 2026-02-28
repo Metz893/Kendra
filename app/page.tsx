@@ -210,7 +210,7 @@ export default function HomePage() {
                 style={{ objectFit: 'cover', objectPosition: '50% 30%' }}
               />              </div>
             ))}
-            <div className="sticker sticker-1">🎀 pretty era</div>
+            <div className="sticker sticker-1">🎀 pretty</div>
             <div className="sticker sticker-2">♥ 17</div>
           </div>
         </div>

@@ -14,6 +14,7 @@ const photos = [
   { src: 'EEC16687-68E2-49F3-BBC1-D48DB5463B55_1_105_c.jpeg', caption: 'Pretty' },
   { src: 'B8DE3662-6129-4DDA-84DF-B6C18D203D00_1_105_c.jpeg', caption: 'Hoco photo' },
   { src: 'B5ED810A-BE8C-42C4-8487-15FFA7BD3080_1_105_c.jpeg', caption: 'hug pic' },
+  { src: 'new4.jpeg', caption: 'Hawaii' },
   { src: 'IMG_0491.JPG', caption: 'You seem suspicious' },
   { src: 'IMG_0492.JPG', caption: 'You are adorable' },
   { src: 'IMG_0493.JPG', caption: 'Looks like stealing froyo' },
